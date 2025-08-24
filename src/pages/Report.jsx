@@ -70,6 +70,7 @@ const Report = () => {
   const [showModal, setShowModal] = useState(false)
   const [modalContent, setModalContent] = useState({ type: '', title: '', message: '' })
   const fileInputRef = useRef(null)
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     // Get user's current location
@@ -264,7 +265,7 @@ const Report = () => {
       }
     }
 
-    const res = await fetch("https://ecovision-community.onrender.com/api/reports", {
+    const res = await fetch(`${API_URL}/api/reports`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${idToken}`, // ✅ only this header

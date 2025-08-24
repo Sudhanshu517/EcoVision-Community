@@ -21,6 +21,8 @@ import {
   faClipboardList
 } from '@fortawesome/free-solid-svg-icons'
 
+
+
 const Home = () => {
   const [reports, setReports] = useState([])
   const [currentTypeFilter, setCurrentTypeFilter] = useState('all')
@@ -53,6 +55,7 @@ const Home = () => {
   const dashboardRef = useRef(null)
   const aboutRef = useRef(null)
   const statsRef = useRef(null)
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     // Enable smooth scrolling for the entire page
@@ -116,7 +119,7 @@ const Home = () => {
   const fetchReports = async () => {
     try {
       setIsLoading(true)
-      const response = await fetch('https://ecovision-community.onrender.com/api/reports')
+      const response = await fetch(`${API_URL}/api/reports`)
       if (response.ok) {
         const data = await response.json()
         setReports(data)
@@ -200,7 +203,7 @@ const Home = () => {
       setPassword('');
       setPasswordError('');
       try {
-        const response = await fetch(`https://ecovision-community.onrender.com/api/reports?password=${password}`, {
+        const response = await fetch(`${API_URL}/api/reports?password=${password}`, {
           method: 'DELETE'
         });
         if (response.ok) {
