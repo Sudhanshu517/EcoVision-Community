@@ -116,7 +116,7 @@ const Home = () => {
   const fetchReports = async () => {
     try {
       setIsLoading(true)
-      const response = await fetch('http://localhost:5000/api/reports')
+      const response = await fetch('https://ecovision-community.onrender.com/api/reports')
       if (response.ok) {
         const data = await response.json()
         setReports(data)
@@ -200,7 +200,7 @@ const Home = () => {
       setPassword('');
       setPasswordError('');
       try {
-        const response = await fetch(`http://localhost:5000/api/reports?password=${password}`, {
+        const response = await fetch(`https://ecovision-community.onrender.com/api/reports?password=${password}`, {
           method: 'DELETE'
         });
         if (response.ok) {

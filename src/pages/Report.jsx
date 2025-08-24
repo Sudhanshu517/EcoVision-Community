@@ -264,7 +264,7 @@ const Report = () => {
       }
     }
 
-    const res = await fetch("http://localhost:5000/api/reports", {
+    const res = await fetch("https://ecovision-community.onrender.com/api/reports", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${idToken}`, // ✅ only this header

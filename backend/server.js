@@ -45,7 +45,10 @@ const Report = mongoose.model("Report", reportSchema);
 // Middlewares
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend origin
+     origin: [
+    "https://eco-vision-community-itau-3p52q83z4.vercel.app", // your Vercel frontend domain
+    "http://localhost:5173" // for local dev
+  ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"], // need Authorization for Firebase token
   })
